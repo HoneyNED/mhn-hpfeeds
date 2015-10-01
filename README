@@ -1,0 +1,18 @@
+Dump alle gebruikers met:
+
+./dump_users.py
+
+Kopier output, vooral de rechten zodat met het updaten van gebruikersrechten dit niet verloren raakt.
+
+Toevoegen gebruiker kan met: 
+sudo python add_user.py username secret publishchans listenchans
+
+Dus stel ik wil een user die published kan dat: 
+python add_user.py mijnChanUser MijnUberPass mijnchan.events ""
+
+Stel je wil luisteren: 
+python add_user.py mijnChanUserLuisteraar MijnUberPass "" mijnchan.events
+
+Voor meer informatie zie: https://github.com/rep/hpfeeds/tree/master/broker
+
+In het geval van MHN is het belangrijk om de gebruiker "elk" te voorzien van luister rechten op nieuw toegevoegde channel. Daarnaast moet /opt/logstash/mhn.conf geupdate worden om het nieuwe kanaal toe te voegen. (vergeet logstash niet te rebooten: sudo supervisor logstash restart)
